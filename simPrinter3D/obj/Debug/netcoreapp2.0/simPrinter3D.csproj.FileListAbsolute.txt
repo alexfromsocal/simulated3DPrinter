@@ -1,0 +1,11 @@
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\bin\Debug\netcoreapp2.0\simPrinter3D.deps.json
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\bin\Debug\netcoreapp2.0\simPrinter3D.runtimeconfig.json
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\bin\Debug\netcoreapp2.0\simPrinter3D.runtimeconfig.dev.json
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\bin\Debug\netcoreapp2.0\simPrinter3D.dll
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\bin\Debug\netcoreapp2.0\simPrinter3D.pdb
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.csprojResolveAssemblyReference.cache
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.csproj.CoreCompileInputs.cache
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.AssemblyInfoInputs.cache
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.AssemblyInfo.cs
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.dll
+c:\users\arekusanda\Source\Repos\simPrinter3D\simPrinter3D\obj\Debug\netcoreapp2.0\simPrinter3D.pdb

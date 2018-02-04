@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "simPrinter3D": {
+      "commandName": "Project",
+      "commandLineArgs": "userToken"
+    }
+  }
+}
