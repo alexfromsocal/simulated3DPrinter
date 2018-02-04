@@ -7,8 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
-
-
+using System.Net.Sockets;
 
 namespace simPrinter3D
 {
@@ -23,40 +22,41 @@ namespace simPrinter3D
 
     class Program
     {
+
         static void Main(string[] args)
         {
             //Variable to use in place of zero index;
             const int frontIndex = 0;
-          
-           
+
+
             Console.WriteLine("Hello World!");                                      //Entry point
 
 
             //Retrieves token key from user acquired from marketplace
             //Fetches data from 'Main' args param
-            string purchaseToken = SetTokenObject(args[frontIndex]);                //String used for verification
-            string userIDToken = SetTokenObject(args[frontIndex+1]);
+            string purchaseToken = SetTokenObject("RYY986559tDfg");                //String used for verification
+            string userIDToken = SetTokenObject("88HFGHF*di76UFGu6UYG");
 
             Guid singleUseAuthToken = TokenAuthentication(purchaseToken, userIDToken).Result;
-            
 
-            
-                Console.WriteLine("Token Purchase Validated");
-                Object fileToPrint = ReadyToPrintEventHandler(singleUseAuthToken).Result;
-                
-                //Do Something here that "prints" (probably save on computer)
-                //This is a simulation after all. :D
-           
-                Console.WriteLine("Invalid Purchase Token.");
-                Console.WriteLine("Please run again.");
-            
+
+
+            Console.WriteLine("Token Purchase Validated");
+            Object fileToPrint = ReadyToPrintEventHandler(singleUseAuthToken).Result;
+
+            //Do Something here that "prints" (probably save on computer)
+            //This is a simulation after all. :D
+
+            Console.WriteLine("Invalid Purchase Token.");
+            Console.WriteLine("Please run again.");
+
 #if DEBUG
             Console.ReadLine();
 #endif
 
         }
 
-        
+
 
         //returns string that is passed in
         static string SetTokenObject(string e_token)
@@ -74,34 +74,24 @@ namespace simPrinter3D
         /// <returns></returns>
         static async Task<Guid> TokenAuthentication(string p_token, string userToken)
         {
-            Console.WriteLine("In TokenAuth \n");
-            Guid tokenSent = new Guid();
+            HttpClient client = new HttpClient();
+            var response = await client.GetAsync($"https://localhost:44358/printerapi/AuthenticatePrintToken?consumable_license={p_token}&user_id={userToken}");
+            //response.IsSuccessStatusCode
 
-            try {
-
-                tokenSent = await TokenSender(p_token, userToken);
-            }
-
-
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-
-            return tokenSent;
+            //
+            throw new NotImplementedException();
         }
 
         public static async Task<Guid> TokenSender(string p_token, string userToken)
         {
             HttpClient client = new HttpClient();
-         
+
 
             //REMEMBER TO CHANGE THE API URL
             HttpResponseMessage response = await client.PostAsJsonAsync("api/authenticate", p_token + userToken);
             response.EnsureSuccessStatusCode();
             Guid validated = await response.Content.ReadAsAsync<Guid>();
-                                                                                 
+
             return validated;
         }
 
@@ -116,8 +106,8 @@ namespace simPrinter3D
             try
             {
 
-               fileToPrint = await ReadyToPrint(singleUseAuthToken);
-                
+                fileToPrint = await ReadyToPrint(singleUseAuthToken);
+
             }
 
 
@@ -145,6 +135,6 @@ namespace simPrinter3D
 
 
         //singleUseReceive func
-        
+
     }
 }
